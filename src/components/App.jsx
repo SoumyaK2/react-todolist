@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 import Content from "./Content";
+import InputArea from "./InputArea";
 
-function App() {
-  const [text, savedText] = useState("");
-  const [arr, setArr] = useState([]);
+function App() {  
+  const [arr, setArr] = useState([]);  
 
-  function handleChange(event) {
-    const value = event.target.value;
-
-    savedText(value);
-  };
-
-  function addText() {
+  function addText(text) {
     setArr((prevValue) => {
       return (
         [...prevValue, text]
       );
-    })
-
-    savedText("");
+    })    
   }
 
   function deleteItem(id){
@@ -35,12 +27,9 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input type="text" onChange={handleChange} value={text} />
-        <button onClick={addText} >
-          <span>Add</span>
-        </button>
-      </div>
+            
+      <InputArea onAdd={addText} />
+
       <div>
         <ul>
 
