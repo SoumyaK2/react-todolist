@@ -1,18 +1,19 @@
-import React, {useState}  from "react";
+import React, { useState } from "react";
+import Content from "./Content";
 
 function App() {
-  const [text, savedText]= useState("");
-  const [arr , setArr]= useState([]);
+  const [text, savedText] = useState("");
+  const [arr, setArr] = useState([]);
 
-  function handleChange(event){
-    const value= event.target.value;
+  function handleChange(event) {
+    const value = event.target.value;
 
     savedText(value);
   };
 
-  function addText(){
-    setArr((prevValue)=>{
-      return(
+  function addText() {
+    setArr((prevValue) => {
+      return (
         [...prevValue, text]
       );
     })
@@ -33,10 +34,10 @@ function App() {
       </div>
       <div>
         <ul>
-        
-          {arr.map(content =>(<li>{content}</li>))}       
-          
-          
+
+          {arr.map(content => (<Content list={content} />))}
+
+
         </ul>
       </div>
     </div>
