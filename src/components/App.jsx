@@ -21,6 +21,15 @@ function App() {
     savedText("");
   }
 
+  function deleteItem(id){
+    setArr( prevValue =>{
+      return prevValue.filter((item, index)=>{
+        return index!==id;
+      })
+    })
+
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -35,7 +44,7 @@ function App() {
       <div>
         <ul>
 
-          {arr.map(content => (<Content list={content} />))}
+          {arr.map((content,index) => (<Content onChange={deleteItem} id={index} list={content} />))}
 
 
         </ul>

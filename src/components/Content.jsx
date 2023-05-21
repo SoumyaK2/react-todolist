@@ -1,16 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 
-function Content(props){
-    const [isClicked, setClicked]= useState(false);    
-
-    function handleChange(){
-        setClicked(prevValue =>{
-            return !prevValue
-        });        
-    }    
+function Content(props){    
 
     return(
-        <li style={{textDecoration: isClicked? "line-through" : "none"}} onClick={handleChange}>{props.list}</li>
+        <li onClick={()=>{
+            props.onChange(props.id);
+        }}>
+        {props.list}
+        </li>
     );
 }
 
